@@ -162,16 +162,32 @@ public class AlgoritmosController {
 
     @PostMapping("/busqueda/interpolacion")
     public int interpolacion(@RequestBody SearchRequest req) {
+
         int[] a = req.data();
-        int low = 0, high = a.length - 1;
+        //Ordenamiento usando libreria estandar de Java
+        Arrays.sort(a);
+
+        int low = 0;
+        int high = a.length - 1;
+
         while (low <= high && req.key() >= a[low] && req.key() <= a[high]) {
-            int pos = low + ((req.key() - a[low]) * (high - low)) / (a[high] - a[low]);
-            if (a[pos] == req.key()) return pos;
-            if (a[pos] < req.key()) low = pos + 1;
-            else high = pos - 1;
+
+            if (a[high] == a[low]) {
+                if (a[low] == req.key()) return low;
+                else return -1;
+            }
+            int pos = low + ((req.key() - a[low]) * (high - low))
+                    / (a[high] - a[low]);
+            if (a[pos] == req.key())
+                return pos;
+            if (a[pos] < req.key())
+                low = pos + 1;
+            else
+                high = pos - 1;
         }
         return -1;
     }
+
 
 }
 

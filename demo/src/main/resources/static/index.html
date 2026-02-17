@@ -37,10 +37,18 @@
         <button onclick="ordenar('heapsort')" class="btn">HeapSort</button>
     </div>
 
-    <div class="grid grid-cols-2 gap-3 mb-6">
-        <button onclick="buscar('secuencial')" class="btn bg-green-600 hover:bg-green-700">Búsqueda Secuencial</button>
-        <button onclick="buscar('binaria')" class="btn bg-green-600 hover:bg-green-700">Búsqueda Binaria</button>
+    <div class="grid grid-cols-3 gap-3 mb-6">
+        <button onclick="buscar('secuencial')" class="btn bg-green-600 hover:bg-green-700">
+            Búsqueda Secuencial
+        </button>
+        <button onclick="buscar('binaria')" class="btn bg-green-600 hover:bg-green-700">
+            Búsqueda Binaria
+        </button>
+        <button onclick="buscar('interpolacion')" class="btn bg-green-600 hover:bg-green-700">
+            Búsqueda Interpolación
+        </button>
     </div>
+
 
     <div class="bg-gray-50 p-4 rounded-lg">
         <p class="break-words"><strong>Resultado:</strong> <span id="resultado" class="text-blue-700 font-mono"></span></p>
